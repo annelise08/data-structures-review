@@ -22,5 +22,36 @@ class Node {
 // Time & Space Complexity:
 const dfs = (root) => {
   // TO DO
+  const queue = [root];
+  const result = [];
+
+  while(queue.length > 0){
+    // assign node to the shifted off node from the queue
+    const node = queue.shift();
+    // add the value to the results array
+    result.push(node.val)
+    // if node has as left val, add it to the queue
+    if (node.left) queue.push(node.left);
+    // if node has a right val, add it to the queue
+    if (node.right) queue.push(node.right);
+  }
+
+  return result;
 };
+const eight = new Node(8);
+const one = new Node(1);
+const two = new Node(2);
+const nine = new Node(9);
+const four = new Node(4);
+const three = new Node(3);
+eight.left = one;
+eight.right = two;
+one.left = nine;
+one.right = four;
+two.right = three;
+
+console.log(dfs(eight))
+console.log()
+
+
 module.exports = { dfs };

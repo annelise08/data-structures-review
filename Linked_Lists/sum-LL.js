@@ -18,6 +18,23 @@ class Node {
 // Time & Space Complexity:
 const sumList = (head) => {
   // TO DO
+  // initialize sum
+  let sum = 0;
+  // initialize current and next
+  let curr = head;
+  // while val is not not null, add val to sum
+  while (curr !== null){
+    sum += curr.val;
+    curr = curr.next;
+  }
+  // return sum
+  return sum;
 };
+
+const head = new Node(5);
+head.next = new Node(6);
+head.next.next = new Node(7);
+
+console.log(sumList(head))
 
 module.exports = { sumList };
